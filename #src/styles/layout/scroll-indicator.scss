@@ -1,0 +1,27 @@
+.scroll-indicator {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 6.4rem;
+    z-index: z('scroll-indicator');
+
+    @include media('<=tablet') {
+        display: none;
+    }
+
+    &.horizontal {
+        svg {
+            transform: rotate(-90deg);
+        }
+    }
+
+    span {
+        @extend %manrope-16;
+
+        color: $color-white;
+        position: relative;
+    }
+    svg {
+        margin-left: 1rem;
+    }
+}

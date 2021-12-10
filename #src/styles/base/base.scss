@@ -1,0 +1,77 @@
+html {
+  font-size: 10px;
+  @include media('>=desktop') {
+    font-size: calc(100vw / 1920 * 10);
+  }
+  @include media('<=laptop') {
+    font-size: calc(100vw / 1280 * 10);
+  }
+  @include media('<=tablet') {
+    font-size: calc(100vw / 768 * 10);
+  }
+  @include media('<=bigPhone') {
+    font-size: calc(100vw / 740 * 10);
+  }
+  @include media('<=phone') {
+    font-size: calc(100vw / 375 * 10);
+  }
+}
+
+body {
+  font-family: $manrope-font;
+  //cursor: none;
+  background: $color-black;
+  overflow-x: hidden!important;
+
+  // * {
+  //   cursor: none;
+  // }
+
+  &._lock, &.menu-lock {
+    overflow-y: hidden!important;
+  }
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+.d-none {
+  display: none!important;
+}
+
+.scroll-container, .split-child {
+  //will-change: transform;
+  //transform-style: preserve-3d;
+}
+
+.split-parent {
+  overflow: hidden;
+}
+
+.pin-spacer:not(:last-child) {
+  height: 1px!important;
+}
+
+[data-src] {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+._cursor-pointer {
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+}
+
+// .preloader {
+//   display: none;
+// }

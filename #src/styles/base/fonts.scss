@@ -1,0 +1,18 @@
+@font-face {
+  font-family: $ramillas-font;
+  src: url('../../fonts/ramillas-regular.woff2') format('woff2'),
+      url('../../fonts/ramillas-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $manrope-font;
+  src: url('../../fonts/manrope-regular.woff2') format('woff2'),
+      url('../../fonts/manrope-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

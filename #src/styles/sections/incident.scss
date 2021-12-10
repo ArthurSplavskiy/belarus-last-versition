@@ -1,0 +1,266 @@
+.incident-section {
+    // @include vh();
+    height: 100vh!important;
+    min-height: 100vh!important;
+    max-height: 100vh!important;
+    width: 100%!important;
+    max-width: 100%!important;
+    top: 0!important;
+
+    color: $color-white;
+    position: fixed;
+    left: 0;
+    z-index: z('incident-section');
+    background: $color-black;
+    box-shadow: 0px 130px 160px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    &__wrapper {
+        // @include vh();
+        height: 100vh;
+
+        position: relative;
+    }
+
+    &__bg {
+        @extend %cover;
+
+        .bg-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            .top, .bottom {
+                height: 100%;
+                position: absolute;
+                display: flex;
+            }
+            .top {
+                top: -50%;
+            }
+            .bottom {
+                left: -30%;
+                bottom: -60%;
+            }
+
+            img {
+                max-width: 80rem;
+
+                &:not(:last-child) {
+                    margin-right: 58.2rem;
+                }
+                @include media('>=desktop') {
+                    max-width: 100rem;
+                }
+            }
+        }
+    }
+
+    &__content {
+        // @include vh();
+        height: 100vh;
+
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 20.4rem calc((100vw - 168.8rem) / 2) 16.2rem calc((100vw - 168.8rem) / 2);
+        margin-right: 4.4rem;
+
+        @media(max-width: 1780px) {
+            padding: 12.8rem 4.4rem 14.2rem 4.4rem;
+        }
+        @include media('<=laptop') {
+            padding: 12.8rem calc((100vw - 111.2rem) / 2) 14.2rem calc((100vw - 111.2rem) / 2);
+        }
+        @include media('<=tablet') {
+            padding: 10rem 4.4rem 5rem 4.4rem;
+        }
+        @include media('<=phone') {
+            padding: 8rem 16px 4rem 16px;
+        }
+    }
+
+    .incident-item {
+        flex-shrink: 0;
+        width: 24.8rem;
+
+        &:not(:last-child) {
+            margin-right: 13.6rem;
+            @include media('>=desktop') {
+                margin-right: 18.6rem;
+            }
+            @include media('<=tablet') {
+                margin-right: 4rem;
+            }
+            @include media('<=phone') {
+                margin-right: 2.4rem;
+            }
+        }
+        &:last-child {
+            width: calc(24.8rem + ((100vw - 168.8rem) / 2));
+            padding-right: calc((100vw - 168.8rem) / 2);
+            @media(max-width: 1780px) {
+                width: 29.2rem;
+                padding-right: 4.4rem;
+            }
+            @include media('<=laptop') {
+                width: calc(24.8rem + ((100vw - 111.2rem) / 2));
+                padding-right: calc((100vw - 111.2rem) / 2);
+            }
+            @include media('<=tablet') {
+                width: 29.2rem;
+                padding-right: 4.4rem;
+            }
+            @include media('<=phone') {
+                width: calc(29.2rem - 16px);
+                padding-right: 16px;
+            }
+        }
+
+        @include media('>=desktop') {
+            width: 39.1rem;
+
+            &:last-child {
+                width: calc(39.1rem + ((100vw - 168.8rem) / 2));
+            }
+        }
+
+        &__head {
+            position: relative;
+            height: 33.8rem;
+            background: $color-grey;
+            border: 1px solid rgba($color-white, 0.1);
+
+            @include media('>=desktop') {
+                height: 53.3rem;
+            }
+        }
+        
+        &_landscape {
+            width: 34.4rem;
+
+            @include media('>=desktop') {
+                width: 53.6rem;
+            }
+
+            .incident-item__head {
+                height: 22.3rem;
+                @include media('>=desktop') {
+                    height: 34.7rem;
+                }
+            }
+        }
+
+        &_empty {
+
+            .incident-item__hover {
+                opacity: 1!important;
+                p {
+                    transform: translate3d(0, 0, 0)!important;
+                }
+                .dots {
+                    span {
+                        transform: translate3d(0, 0, 0)!important;
+                    }
+                }
+            }
+        }
+        &__image {
+            @extend %cover;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &__line {
+            @extend %center;
+
+            height: 5rem;
+            margin: 1.6rem 0;
+
+            .line {
+                transition: transform 1.2s $easy-out-expo;
+                transform-origin: 0 0;
+                transform: scale3d(0);
+                background: $color-redbg;
+                width: 1px;
+                height: 100%;
+
+                &.is-view {
+                    transform: scale3d(1);
+                }
+            }
+        }
+        &__descr {
+            // &.is-view {
+            //     p {
+            //         transform: translate3d(0, 0, 0);
+            //         opacity: 1;
+            //     }
+            // }
+            div {
+                overflow: hidden;
+            }
+            p {
+                @extend %ramillas-24;
+
+                //transition: transform 1.2s $easy-out-expo 1s, opacity 1.2s $easy-out-expo 1s;
+                //transform: translate3d(0, 110%, 0);
+                color: $color-grey-3;
+                text-align: center; 
+                //opacity: 0;
+            }
+        }
+
+        &__hover {
+            @extend %cover;
+            @extend %manrope-14;
+
+            padding: 1.6rem;
+            line-height: 2.24rem;
+            background-color: rgba($color-black, 0.5);
+        }
+
+        @media(any-hover: hover) {
+            .incident-item__hover {
+                transition: opacity 1.8s $easy-out-expo;
+                opacity: 0;
+    
+                .dots {
+                    span {
+                        transition: transform 1.8s $easy-out-expo;
+                        
+                    }
+                    span:first-child {
+                        transform: translate3d(0, 1rem, 0);
+                    }
+                    span:last-child {
+                        transform: translate3d(0, 2.5rem, 0);
+                    }
+                }
+                p {
+                    transition: transform 1.8s $easy-out-expo;
+                    transform: translate3d(0, 3rem, 0);
+                }
+            }
+            
+
+            &:hover {
+                .incident-item__hover {
+                    opacity: 1;
+                    p {
+                        transform: translate3d(0, 0, 0);
+                    }
+                    .dots {
+                        span {
+                            transform: translate3d(0, 0, 0);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

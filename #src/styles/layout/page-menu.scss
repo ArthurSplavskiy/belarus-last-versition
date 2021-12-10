@@ -1,0 +1,235 @@
+.page-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color-black;
+    z-index: z('page-menu');
+
+    @include media('<=bigPhone') {
+        overflow-y: auto;
+    }
+
+    &__wrapper {
+        height: 100%;
+        padding: 14.4rem 0;
+
+        @include media('<=bigPhone') {
+            height: auto;
+            overflow-y: auto;
+            padding: 14rem 0 6rem 0;
+        }
+
+        ._container {
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    &__slider {
+        @extend %menu-slider;
+
+        overflow: visible;
+        width: 100%;
+        min-width: 0;
+        color: $color-white;
+        cursor: grab;
+        * {
+            cursor: grab;
+        }
+
+        .swiper-wrapper {
+            @include media('<=bigPhone') {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.6rem;
+
+                .swiper-slide {
+                    min-width: 100%;
+                }
+            }
+
+            &.grabbing {
+                cursor: grabbing;
+                * {
+                    cursor: grabbing;
+                }
+            }
+        }
+    }
+
+    &__slider-controls {
+        display: flex;
+        align-items: center;
+        margin-top: 4rem;
+        cursor: pointer;
+        // * {
+        //     cursor: none;
+        // }
+
+        @include media('<=bigPhone') {
+            display: none;
+        }
+
+        .swiper-button-prev, .swiper-button-next {
+            &.swiper-button-disabled {
+                svg {
+                    fill: $color-white;
+                }
+            }
+        }
+        .swiper-button-next {
+            transform: rotate(180deg);
+        }
+        .swiper-scrollbar {
+            width: 100%;
+            height: 5px;
+            background: rgba($color-white, 0.1);
+            margin: 0 2.4rem;
+            div {
+                background: $color-white;
+                height: 5px;
+            }
+        }
+    }
+
+    &__card {
+        position: relative;
+        width: 100%;
+        height: 35.5rem;
+        background: $color-grey;
+        padding: 1.6rem;
+
+        @include media('>laptop') {
+            height: 42.5rem;
+        }
+        @include media('>desktop') {
+            height: 50.5rem;
+        }
+        @include media('<=bigPhone') {
+            height: 40.2rem;
+        }
+        @include media('<=phone') {
+            height: 22.2rem;
+        }
+
+        .img-top, .img-bottom {
+            path {
+                transition: fill 2s $easy-out-expo;
+            }
+        }
+
+        @media(any-hover: hover) {
+            &:hover {
+                .img-top, .img-bottom {
+                    path {
+                        fill: rgba($color-redbg, 0.2);
+                    }
+                }
+
+                // @include media('>=tablet') {
+                //     .page-menu__card-title {
+                    
+                //         .native {
+                //             & > div {
+                //                 & > div {
+                //                     transform: translate3d(0, -100%, 0)!important;
+                //                 }
+                //             }
+                //         }
+                //         .clone {
+                //             & > div {
+                //                 & > div {
+                //                     transform: translate3d(0, 0, 0)!important;
+                //                 }
+                //             }
+                //         }
+    
+                //     }
+                // }
+                
+
+            }
+        }
+
+        &-bg {
+            @extend %cover;
+
+            overflow: hidden;
+
+            &-wrap {
+                @extend %absolute-center;
+                width: 100%;
+
+                .img-top, .img-bottom {
+                    max-width: 100%;
+                    
+                    svg {
+                        transition: transform 1.4s $easy-out-expo;
+                    }
+                    path {
+                        transition: fill 1.4s $easy-out-expo;
+                    }
+                }
+            }
+        }
+        &-content {
+            position: relative;
+            height: 100%;
+            z-index: 2;
+        }
+        &-index {
+            @extend %manrope-14;
+            @extend %center;
+
+            
+        }
+        &-title {
+            @extend %ramillas-24;
+            @extend %absolute-center;
+
+            width: 100%;
+            text-align: center;
+            position: relative;
+
+            // .split-child {
+            //     position: absolute!important;
+            //     top: 50%;
+            //     left: 50%;
+            //     transform: translate(-50%, -50%);
+            //     width: 100%;
+
+            //     .clone, .native {
+            //         text-align: center;
+                    
+            //         & > div {
+            //             overflow: hidden;
+            //             & > div {
+            //                 transition: transform 1.2s $easy-out-expo;
+            //             }
+            //         }
+            //     }
+            //     .clone {
+            //         @include media('<=tablet') {
+            //             display: none;
+            //         }
+
+            //         & > div {
+            //             & > div {
+            //                 transform: translate3d(0, 100%, 0)!important;
+            //             }
+            //         }
+            //     }
+
+            // }
+
+            // .split-child {
+            //     & > div {
+            //         overflow: hidden;
+            //     }
+            // }
+
+        }
+    }
+}

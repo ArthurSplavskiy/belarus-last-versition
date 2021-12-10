@@ -1,0 +1,56 @@
+.c-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: z('cursor');
+    transform-origin: 50% 50%;
+
+    @media(any-hover: none) {
+        display: none;
+    }
+
+    & * {
+        pointer-events: none;
+    }
+
+    .page-cursor {
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 14px;
+        height: 14px;
+        background: rgba(159, 19, 7, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        transform-origin: 50% 50%;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    &__slider {
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        display: none;
+
+        
+
+        .arrow {
+            transform-origin: 50% 50%;
+        }
+        &.right {
+            .arrow {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    &.above-slider {
+
+        .page-cursor {
+            display: none;
+        }
+
+        .c-cursor__slider {
+            display: block;
+            @include media('<=bigPhone') {
+                display: none;
+            }
+        }
+    }
+}

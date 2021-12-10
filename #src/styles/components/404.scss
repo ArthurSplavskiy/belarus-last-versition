@@ -1,0 +1,75 @@
+.not-found {
+    h1 {
+        @extend %ramillas-220;
+
+        color: $color-white;
+        margin-bottom: 1.6rem;
+    }
+    .header {
+        pointer-events: none;
+    }
+    .page-cover {
+        @extend %cover;
+
+        overflow: hidden;
+        background: $color-redbg;
+
+        &__wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+
+            ._container {
+                @extend %center;
+
+                width: auto;
+                height: 100%;
+                flex-direction: column;
+            }
+        }
+
+        &__bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+
+            ._container {
+                width: auto;
+                height: 100%;
+
+                .page-cover__bg-inner {
+                    position: relative;
+                    height: 100%;
+                    img {
+                        width: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            @include media('>tablet') {
+                width: 100%;
+            }
+            @include media('<=tablet') {
+                width: 100%;
+                height: 100%;
+
+                ._container .page-cover__bg-inner {
+                    position: inherit;
+
+                    img {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+    
+}

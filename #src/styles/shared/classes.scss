@@ -1,0 +1,24 @@
+._container {
+    box-sizing: content-box;
+    margin: 0 auto;
+    max-width: 168.8rem;
+    width: 100%;
+    padding: 0 4.4rem;
+    @include media('<=laptop') {
+        max-width: 111.2rem;
+    }
+    @include media('<=tablet') {
+        max-width: 68rem;
+    }
+    @include media('<=phone') {
+        padding: 0 16px;
+        width: calc(100% - 32px);
+    }
+}
+
+.wc-transform {
+    will-change: transform;
+}
+.wc-opacity {
+    will-change: opacity;
+}

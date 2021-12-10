@@ -1,0 +1,197 @@
+.history-section {
+    // @include vh();
+    height: 100vh!important;
+    min-height: 100vh!important;
+    max-height: 100vh!important;
+    width: 100%!important;
+    max-width: 100%!important;
+    top: 0!important;
+
+    color: $color-white;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    z-index: z('history-section');
+    background: $color-black;
+    box-shadow: 0px 130px 160px rgba(0, 0, 0, 0.1);
+
+    &__wrapper {
+    }
+
+    .lines {
+        // @include vh();
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 11.2rem 0 10.5rem 0;
+    }
+
+    .line-container {
+        display: flex;
+        
+
+        @include media('>tablet') {
+            &:nth-child(4), &:nth-child(5) {
+                display: none;
+            }
+        }
+        @include media('<=phone') {
+            &:nth-child(5) {
+                display: none;
+            }
+        }
+
+        &:nth-child(odd) { // move to left
+            justify-content: flex-end;
+
+            .line {
+                //transition: all 5s ease;
+                //transform-origin: 100% 100%;
+                //transform: translate(20%, 0);
+            }
+            
+        }
+        &:nth-child(even) { // move to right
+
+            .line {
+                //transition: transform 5s ease;
+                //transform: translate(-20%, 0);
+            }
+        }
+        &:not(:last-child) {
+            padding-bottom: 3.2rem;
+            border-bottom: 1px solid rgba(#fff, $alpha: 0.1);
+        }
+
+    }
+
+    .line {
+        flex-shrink: 0;
+        width: auto;
+        white-space: nowrap;
+        overflow: visible;
+        display: flex;
+        //will-change: transform;
+
+        .stroke, .fill {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            margin: 0 2rem;
+
+            @include media('<=tablet') {
+                margin: 0 0.8rem;
+            }
+
+            span {
+                @extend %ramillas-148;
+
+                text-transform: uppercase;
+                letter-spacing: 0.2rem;
+                margin-right: 4rem;
+
+                @include media('<=tablet') {
+                    margin-right: 1.6rem;
+                }
+            }
+            img {
+
+                @include media('>=desktop') {
+                    max-width: 108px;
+                }
+                @include media('<desktop') {
+                    max-width: 75px;
+                }
+                @include media('<=laptop') {
+                    max-width: 75px;
+                }
+                @include media('<=tablet') {
+                    max-width: 58px;
+                }
+                @include media('<=bigPhone') {
+                    max-width: 40px;
+                }
+                @include media('<=phone') {
+                    max-width: 36px;
+                }
+            }
+        }
+        .stroke {
+            span {
+                -webkit-text-stroke: 1px #fff;
+                text-stroke: 1px #fff;
+                color: transparent;
+            }
+        }
+    }
+
+    .move-bg {
+        // @include vh();
+        height: 100vh;
+
+        width: 100vw;
+        position: relative;
+        z-index: 1;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            object-fit: cover;
+            width: 100%;
+            min-height: 100%; //comment
+        }
+    }
+
+    .content {
+        // @include vh();
+        height: 100vh;
+        
+        width: 100vw;
+        position: relative;
+        z-index: 2;
+
+        &__wrapper {    
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 10rem 4.4rem;
+
+            @include media('<=phone') {
+                padding: 0 16px;
+            }
+        }
+
+        .text-item {
+            max-width: 92rem;
+            margin: 0 auto;
+            visibility: visible!important;
+
+            //will-change: opacity, display;
+
+            @include media('>=desktop') {
+                max-width: 140rem;
+            }
+
+            p {
+                @extend %manrope-24;
+
+                @include media('<=bigPhone') {
+                    font-size: 16px;
+                    line-height: 25.6px;
+                }
+
+                text-indent: 6.2rem;
+            }
+        }
+
+        // defaut after lines 200vh;
+        // transform: translateY(-200%);
+    }
+}

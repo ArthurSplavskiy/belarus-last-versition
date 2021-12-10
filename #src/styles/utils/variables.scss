@@ -1,0 +1,31 @@
+$color-white:#fff;
+$color-black:#000;
+$color-redbg: #9F1307;
+$color-grey: #161616;
+$color-grey-2: #1B1B1B;
+$color-grey-3: #E0E0E0;
+$color-blog-text: #404040;
+$color-redtext:#BC271A;
+
+$ramillas-font: 'Ramillas';
+$manrope-font: 'Manrope';
+
+$easy-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+$z-indexes: (
+  'cursor',
+  'header',
+  'noise',
+  'page-menu',
+  'preloader',
+  'scroll-indicator',
+  'page',
+
+  'hero-section',
+  'timeline-section',
+  'history-section',
+  'incident-section',
+  'blog-section',
+
+  'footer'
+);

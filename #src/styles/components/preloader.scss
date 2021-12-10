@@ -1,0 +1,397 @@
+.preloader {
+  @extend %cover;
+  // @include vh();
+  height: 100vh;
+
+  overflow: hidden;
+  background: $color-redbg;
+  box-shadow: 0px 130px 160px rgba(0, 0, 0, 0.3);
+  z-index: z('preloader');
+  user-select: none;
+  transform: translateZ(1px);
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+
+    ._container {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+
+    ._container {
+      width: auto;
+      height: 100%;
+
+      .preloader__bg-inner {
+        position: relative;
+        height: 100%;
+        img {
+          width: 100%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          object-fit: cover;
+        }
+      }
+    }
+
+    @include media('>tablet') {
+      width: 100%;
+    }
+    @include media('<=tablet') {
+      width: 100%;
+      height: 100%;
+
+      ._container .preloader__bg-inner {
+        position: inherit;
+
+        img {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__slider {
+    @extend %cover;
+
+    @include media('<=phone') {
+      padding: 0 16px;
+    }
+
+    &-wrapper {
+      position: relative;
+      height: 100%;
+    }
+  }
+  &__slide {
+    @extend %cover;
+    @extend %center;
+
+    
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+
+    @keyframes animationEnd {
+      to {
+        opacity: 0;
+      }
+    }
+    @keyframes animationEndSecond {
+      to {
+        opacity: 0;
+      }
+    }
+    
+
+    &._active {
+      opacity: 1;
+      transition: opacity 2s $easy-out-expo;
+      pointer-events: auto;
+      user-select: auto;
+    }
+
+    &:nth-child(1) {
+      &._active {
+        .circle-calendar {
+          .first-circle {
+            transform-origin: 50% 50%;
+            animation-name: leftRotate;
+            animation-duration: 4.5s;
+            animation-delay: 1s;
+            animation-timing-function: cubic-bezier(.54,.01,.42,.96);
+            animation-fill-mode: forwards;
+            transform: rotate(30deg) rotateZ(1deg);
+          }
+          .second-circle {
+            transform-origin: 50% 50%;
+            animation-name: rightRotate;
+            animation-duration: 4.5s;
+            animation-delay: 0.8s;
+            animation-timing-function: cubic-bezier(.54,.01,.42,.96);
+            animation-fill-mode: forwards;
+            transform: rotate(-30deg) rotateZ(1deg);
+          }
+          .third-circle {
+            transform-origin: 50% 50%;
+            animation-name: leftRotate;
+            animation-duration: 4.5s;
+            animation-delay: 0.5s;
+            animation-timing-function: cubic-bezier(.54,.01,.42,.96); // .68,1,.59,.99
+            animation-fill-mode: forwards;
+            transform: rotate(30deg) rotateZ(1deg);
+          }
+          @keyframes leftRotate {
+            to {
+                transform: rotate(360deg) rotateZ(1deg);
+            }
+          }
+          @keyframes rightRotate {
+            to {
+                transform: rotate(-360deg) rotateZ(1deg);
+            }
+          }
+        }
+      }
+    }
+    // &:nth-child(2) {
+    //   opacity: 1;
+    // }
+    
+    &:nth-child(3) {
+      .preloader__slide-content ._container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
+  &__calendar {
+    @extend %center;
+
+    width: 56.2rem;
+    height: 56.2rem;
+    
+    @include media('>tablet', '<desktop') {
+      @media(max-height: 700px) {
+        width: 40.8rem;
+        height: 40.8rem;
+      }
+      @media(max-height: 560px) {
+        width: 30.8rem;
+        height: 30.8rem;
+      }
+    }
+    
+    @include media('<=phone') {
+      width: 100%;
+    }
+    @include media('<=tablet') {
+      width: 71.4rem;
+      height: 71.4rem;
+  
+      @media(max-height: 850px) {
+        width: 51.4rem;
+        height: 51.4rem;
+      }
+      @media(max-height: 650px) {
+        width: 31.4rem;
+        height: 31.4rem;
+      }
+    }
+    @include media('>=desktop') {
+      width: 86.8rem;
+      height: 86.8rem;
+      @media(max-height: 1040px) {
+        width: 76.8rem;
+        height: 76.8rem;
+      }
+    }
+   
+
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__title {
+    @extend %ramillas-62;
+
+    max-width: 92rem;
+    text-align: center;
+    color: $color-white;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 7.2rem;
+    overflow: hidden;
+
+    & > div {
+      overflow: hidden;
+    }
+    
+    span {
+      display: block;
+      overflow: hidden;
+    }
+
+    @include media('>=desktop') {
+      max-width: 140rem;
+    }
+  }
+  &__button {
+    @extend %ramillas-16;
+    @extend %center;
+
+    width: 20.5rem;
+    height: 8rem;
+    text-align: center;
+    color: $color-white;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6.1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    // @include media('<=phone') {
+    //   width: 100%;
+    // }
+
+    &:hover {
+      &:before {
+        transform: scale(1.2);
+        filter: brightness(0.4);
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 2s $easy-out-expo, filter 2s $easy-out-expo;
+      background: url('../../images/button-bg.png');
+      background-size: cover;
+      filter: brightness(0.6);
+      z-index: 1;
+    }
+  }
+}
+
+.timer {
+  width: 62.6rem;
+
+  @include media('>=desktop') {
+    width: 72.1rem;
+  }
+
+  @include media('<=phone') {
+    width: 14.3rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+
+    @include media('<=phone') {
+      flex-direction: column;
+    }
+  }
+  &__item {
+    width: 100%;
+
+    @include media('<=phone') {
+      margin-bottom: 3.2rem;
+    }
+
+    &:first-child {
+
+      .timer__item-title {
+        border-left: 1px solid rgba(#fff, 0.3);
+
+        @include media('<=phone') {
+          border-right: 1px solid rgba(#fff, 0.3);
+        }
+      }
+      .timer__item-date {
+        &:after {
+          @extend %ramillas-124;
+
+          content: ':';
+          color: $color-white;
+          position: absolute;
+          right: -8%;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    &:nth-child(2) {
+
+      .timer__item-title {
+        border-left: 1px solid rgba(#fff, 0.3);
+        border-right: 1px solid rgba(#fff, 0.3);
+      }
+      .timer__item-date {
+        &:after {
+          @extend %ramillas-124;
+
+          content: ':';
+          color: $color-white;
+          position: absolute;
+          right: -8%;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    &:last-child {
+      .timer__item-title {
+        border-right: 1px solid rgba(#fff, 0.3);
+
+        @include media('<=phone') {
+          border-left: 1px solid rgba(#fff, 0.3);
+        }
+      }
+    }
+    &-title {
+      @extend %center;
+      @extend %manrope-12;
+
+      height: 3.3rem;
+      border-bottom: 1px solid rgba(#fff, 0.3);
+      color: $color-white;
+      margin-bottom: 1.8rem;
+
+      @include media('<=phone') {
+        margin-bottom: 0;
+      }
+
+      span {
+        margin-bottom: 1.2rem;
+      }
+    }
+    &-date {
+      @extend %center;
+      @extend %ramillas-124;
+
+      position: relative;
+      color: $color-white;
+
+      span {
+        overflow: hidden;
+      }
+
+      @include media('<=phone') {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

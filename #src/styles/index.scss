@@ -1,0 +1,36 @@
+@import './base/reset';
+
+@import './utils/variables';
+@import './utils/vendors';
+@import './utils/extends';
+@import './utils/functions';
+@import './utils/mixins';
+@import './utils/responsive';
+
+@import './shared/ramillas-text';
+@import './shared/manrope-text';
+@import './shared/classes';
+
+@import './base/fonts';
+@import './base/base';
+
+@import './components/preloader';
+@import './components/404';
+
+@import './layout/scroll-indicator.scss';
+@import './layout/cursor.scss';
+@import './layout/noise.scss';
+@import './layout/header.scss';
+@import './layout/page-menu.scss';
+@import './layout/dots.scss';
+@import './layout/footer.scss';
+
+@import './sections/hero.scss';
+@import './sections/timeline.scss';
+@import './sections/history.scss';
+@import './sections/incident.scss';
+@import './sections/blog.scss';
+
+// .preloader, .hero-section, .timeline-section {
+//     display: none;
+// }

@@ -1,0 +1,179 @@
+.footer {
+    // @include vh();
+    height: 100vh;
+    
+    color: $color-white;
+    width: 100%;
+    background: $color-redbg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: z('footer');
+    top: 0!important;//add
+
+    // animation
+    &.is-view {
+        .split-child {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        } 
+    }
+    .split-child {
+        transition: transform 2s $easy-out-expo, opacity 2s $easy-out-expo;
+        transform: translate3d(0, 100%, 0);
+        opacity: 0;
+    }
+
+    &__wrapper {
+        position: relative;
+        height: 100%;
+    }
+    &__bg {
+        @extend %cover;
+
+        img {
+            @extend %cover;
+
+            transform: scale(1.1);
+            @include media('>=desktop') {
+                object-fit: cover;
+                transform: scale(1);
+            }
+            @include media('<=bigPhone') {
+                object-fit: cover;
+                transform: scale(1);
+            }
+        }
+    }
+    &__content {
+        @extend %cover;
+
+        .container {
+            @extend %absolute-center;
+
+            @include media('<=bigPhone') {
+                width: 100vw;
+                padding: 0 4.4rem;
+            }
+            @include media('<=phone') {
+                width: calc(100vw - 32px);
+                padding: 0;
+            }
+
+            .box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                span {
+                    @extend %manrope-14;
+
+                    color: rgba($color-white, 0.5);
+                }
+                .social-link {
+                    overflow: hidden;
+                    @extend %ramillas-124;
+
+                    @include media('<=tablet') {
+                        font-size: 8rem;
+                        line-height: 100%;
+                    }
+                    @include media('<=phone') {
+                        font-size: 5rem;
+                        line-height: 100%;
+                    }
+
+                    text-transform: uppercase;
+
+                    .split-parent {
+                        overflow: hidden;
+                    }
+                }
+                &:first-child {
+                    @include media('<=bigPhone') {
+                        flex-direction: column;
+                        align-items: flex-start;
+
+                        .social-link {
+                            margin-top: 1.6rem;
+                        }
+                    }
+
+                    .social-link {
+                        .split-child {
+                            transition-delay: 0.2s;
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    @include media('<=tablet') {
+                        justify-content: center;
+                    }
+                    .social-link {
+                        .split-child {
+                            transition-delay: 0.3s;
+                        }
+                    }
+                }
+                &:last-child {
+                    flex-direction: row-reverse;
+
+                    @include media('<=bigPhone') {
+                        flex-direction: column-reverse;
+                        align-items: flex-end;
+                    }
+
+                    .social-link {
+                        margin-right: 20rem;
+
+                        @include media('>=desktop') {
+                            margin-right: 40rem;
+                        }
+                        @include media('<=bigPhone') {
+                            margin-right: 0;
+                            margin-bottom: 1.6rem;
+                        }
+
+                        .split-child {
+                            transition-delay: 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__copyright {
+        position: absolute;
+        bottom: 3.2rem;
+        left: 0;
+        width: 100%;
+
+        ._container {
+            width: auto;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @include media('<=bigPhone') {
+                flex-direction: column;
+
+                div:first-child {
+                    margin: 0 0 2rem 0;
+                }
+            }
+
+            div:last-child {
+                span {
+                    margin-right: 6px;
+                }
+            }
+
+            span {
+                @extend %manrope-12;
+
+                color: rgba($color-white, 0.5);
+            }
+        }
+    }
+}

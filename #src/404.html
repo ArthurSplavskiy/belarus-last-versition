@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('tpl/_head.html',{
+		"title":"Making Belarus"
+	})
+	<body class="not-found">
+
+		<!-- ===================== | PAGE CURSOR START | ===================== -->
+		<div class="c-cursor">
+			<svg class="c-cursor__slider" width="104" height="60" viewBox="0 0 104 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="52" cy="30" r="30" fill="#9F1307" fill-opacity="0.8"/>
+				<circle cx="52" cy="30" r="29.5" stroke="white" stroke-opacity="0.4"/>
+				<path class="arrow" d="M50.8281 30L55.7781 25.05L54.3641 23.636L48.0001 30L54.3641 36.364L55.7781 34.95L50.8281 30Z" fill="white"/>
+				<rect x="7" y="23" width="9.8995" height="9.8995" transform="rotate(45 7 23)" fill="#9F1307" fill-opacity="0.8"/>
+				<rect x="7" y="23.7071" width="8.8995" height="8.8995" transform="rotate(45 7 23.7071)" stroke="white" stroke-opacity="0.4"/>
+				<rect x="96.9287" y="23" width="9.8995" height="9.8995" transform="rotate(45 96.9287 23)" fill="#9F1307" fill-opacity="0.8"/>
+				<rect x="96.9287" y="23.7071" width="8.8995" height="8.8995" transform="rotate(45 96.9287 23.7071)" stroke="white" stroke-opacity="0.4"/>
+			</svg>
+			<div class="page-cursor"></div>
+		</div>
+		<!-- ===================== | PAGE CURSOR END | ===================== -->
+
+		<!-- ===================== | PAGE NOISE START | ===================== -->
+		<div class="preloader-cover"></div>
+		<!-- ===================== | PAGE NOISE END | ===================== -->
+
+		<!-- ===================== | PAGE WRAPPER START | ===================== -->
+		<div class="wrapper">
+
+			<!-- ===================== | PAGE NOISE START | ===================== -->
+			<div class="noise"></div>
+			<!-- ===================== | PAGE NOISE END | ===================== -->
+
+			<!-- ===================== | PAGE HEADER START | ===================== -->
+			@@include('tpl/_header.html',{})
+			<!-- ===================== | PAGE HEADER END | ===================== -->
+
+			<!-- ===================== | PAGE CONTENT START | ===================== -->
+			<main class="page">
+
+                <!-- ===================== | PRELOADER START | ===================== -->
+                <div class="page-cover">
+                    
+                    <div class="page-cover__wrapper">
+                        <div class="_container">
+                            <h1>404</h1>
+                            <a href="index.html" class="preloader__button _cursor-pointer">
+                                <span>На главную</span>
+                            </a>
+                        </div>
+                        
+                    </div>
+
+                    <div class="page-cover__bg">
+                        <div class="_container">
+                            <div class="page-cover__bg-inner">
+                                <img src="images/icons/octagon.svg" alt="Making Belarus">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- ===================== | PRELOADER END | ===================== -->
+
+			</main>
+			<!-- ===================== | PAGE CONTENT END | ===================== -->
+
+		</div>
+		<!-- ===================== | PAGE WRAPPER END | ===================== -->
+
+		@@include('tpl/_js.html',{})
+
+	</body>
+</html>
